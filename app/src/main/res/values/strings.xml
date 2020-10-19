@@ -12,4 +12,7 @@
     <string name="Title">MineSweeper</string>
     <string name="byline">By Vaibhav Saini</string>
     <string name="skipbutton">SKIP</string>
+    <string name="play_game">Play Game!</string>
+    <string name="options">Options</string>
+    <string name="help">Help</string>
 </resources>
