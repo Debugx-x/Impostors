@@ -1,9 +1,5 @@
 package com.vaibhavs.MineSweeper.UI;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,18 +8,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.vaibhavs.MineSweeper.R;
+import com.vaibhavs.MineSweeper.model.Minesfield;
 
 public class Main_menu extends AppCompatActivity {
+
+    Minesfield mf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayShowHomeEnabled(true);
+
+        mf = Minesfield.getInstance();
 
         Intent_buttons();
     }
@@ -33,6 +32,7 @@ public class Main_menu extends AppCompatActivity {
         play_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // increment no of games played
                 Toast.makeText(Main_menu.this,"Launching Game Screen",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(Main_menu.this,Help.class);
                 startActivity(i);
