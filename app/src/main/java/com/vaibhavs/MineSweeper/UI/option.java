@@ -76,17 +76,17 @@ public class option extends AppCompatActivity {
             //Parameters checking
             if(row <=3 ){
                 throw new IllegalArgumentException("No of rows cannot be less than 3");
-            } else if (row >=51){
+            } else if (row >= 51){
                 throw new IllegalArgumentException("No of rows cannot be greater than 50");
             }
             if(col <= 5 ){
                 throw new IllegalArgumentException("No of columns cannot be less than 3");
-            } else if (col >=51){
+            } else if (col >= 51){
                 throw new IllegalArgumentException("No of columns cannot be greater than 50");
             }
-            if(mine <=6 ){
+            if(mine <= 6 ){
                 throw new IllegalArgumentException("Impostors cannot be less than 3");
-            } else if (row >=61){
+            } else if (mine >= 61){
                 throw new IllegalArgumentException("Impostors cannot be greater than 50");
             }
             // sets dimensions

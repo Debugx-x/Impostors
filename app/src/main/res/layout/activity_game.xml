@@ -7,8 +7,8 @@
 
     <TableLayout
         android:id="@+id/buttontable"
-        android:layout_width="708dp"
-        android:layout_height="305dp"
+        android:layout_width="702dp"
+        android:layout_height="303dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
