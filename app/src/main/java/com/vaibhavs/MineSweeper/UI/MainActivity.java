@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         switch(item.getItemId()) {
             case android.R.id.home:
-                finish();
                 System.exit(0);
         }
         return super.onOptionsItemSelected(item);

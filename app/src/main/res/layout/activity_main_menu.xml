@@ -12,8 +12,10 @@
         android:layout_height="85dp"
         android:layout_above="@+id/btn_options"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="42dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginBottom="25dp"
         android:text="@string/play_game" />
 
     <Button
@@ -23,7 +25,7 @@
         android:layout_above="@+id/btn_help"
         android:layout_alignParentStart="true"
         android:layout_marginStart="42dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="25dp"
         android:text="@string/options" />
 
     <Button
@@ -33,7 +35,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="42dp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginBottom="25dp"
         android:text="@string/help" />
 
     <ImageView
@@ -43,19 +45,20 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="71dp"
-        android:layout_marginEnd="78dp"
-        app:srcCompat="@drawable/_citypng_com_hd_red_among_us_character_with_knife_on_hand_png___1167x1590" />
+        android:layout_marginTop="91dp"
+        android:layout_marginEnd="82dp"
+        app:srcCompat="@drawable/impostor" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="150dp"
+        android:layout_width="203dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/schoolbell"
         android:text="@string/main_menu"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="42dp" />
 </RelativeLayout>

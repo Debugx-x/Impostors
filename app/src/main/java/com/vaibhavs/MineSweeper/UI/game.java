@@ -25,23 +25,26 @@ public class game extends AppCompatActivity {
 
     Minesfield mf;
 
+    private int rows;
+    private int col;
     private int mines_found = 0;
     private int Scan_no = 0;
-    private int rows = mf.getRows();
-    private int col = mf.getCol();
     Button[][] buttons = new Button[rows][col];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        
+
         mf = Minesfield.getInstance();
+        rows = mf.getRows();
+        col = mf.getCol();
+
         set_initialtexts();
         populateButtons();
-        set_mines(buttons);
+        set_mines();
     }
 
-    private void set_mines(Button[][] buttons) {
+    private void set_mines() {
         Random rand = new Random();
         int r,c;
         for (int i = 0; i < mf.getNo_of_mines();){
@@ -124,8 +127,7 @@ public class game extends AppCompatActivity {
             Resources resource = getResources();
             button.setBackground(new BitmapDrawable(resource, scaledBitmap));
         }
-        int mine = getMines(row,col);
-        button.setText(""+mine);
+        button.setText("" + getMines(row,col));
     }
 
     private int getMines(int row,int col) {
