@@ -29,7 +29,7 @@ public class game extends AppCompatActivity {
     private int col;
     private int mines_found = 0;
     private int Scan_no = 0;
-    Button[][] buttons = new Button[rows][col];
+    Button[][] buttons;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +38,7 @@ public class game extends AppCompatActivity {
         mf = Minesfield.getInstance();
         rows = mf.getRows();
         col = mf.getCol();
-
+        buttons = new Button[rows][col];
         set_initialtexts();
         populateButtons();
         set_mines();
@@ -52,7 +52,7 @@ public class game extends AppCompatActivity {
             c = rand.nextInt(mf.getCol());
             if (buttons[r][c].getText() != "mine"){
                 buttons[r][c].setText("mine");
-                buttons[r][c].setTextColor(0xff0000);
+                buttons[r][c].setTextColor(0xffffff);
                 i++;
             }
         }
@@ -79,8 +79,8 @@ public class game extends AppCompatActivity {
             table.addView(tableRow);
 
             for (int col = 0; col < mf.getCol(); col++) {
-                final int FINAL_COL = mf.getCol();
-                final int FINAL_ROW = mf.getRows();
+                final int FINAL_COL = col;
+                final int FINAL_ROW = row;
 
                 Button button = new Button(this);
                 button.setLayoutParams(new TableRow.LayoutParams(
