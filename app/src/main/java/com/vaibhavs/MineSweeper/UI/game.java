@@ -18,8 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.vaibhavs.MineSweeper.R;
 import com.vaibhavs.MineSweeper.model.Minesfield;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class game extends AppCompatActivity {
@@ -32,7 +30,6 @@ public class game extends AppCompatActivity {
     private int rows = mf.getRows();
     private int col = mf.getCol();
     Button[][] buttons = new Button[rows][col];
-    private List<Button> btns = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,19 +110,45 @@ public class game extends AppCompatActivity {
 
     private void gridButtonClicked(int row, int col) {
         Button button = buttons[row][col];
+        if (button.getText() == "mine") {
 
-        // Lock Button Sizes:
-        lockButtonSizes();
+            // increases no of mines found and sets text
+            set_foundmines();
+            // Lock Button Sizes:
+            lockButtonSizes();
 
-        int newWidth = button.getWidth();
-        int newHeight = button.getHeight();
-        Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable._citypng_com_hd_red_among_us_character_with_knife_on_hand_png___1167x1590);
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
-        Resources resource = getResources();
-        button.setBackground(new BitmapDrawable(resource, scaledBitmap));
+            int newWidth = button.getWidth();
+            int newHeight = button.getHeight();
+            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.impostor);
+            Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
+            Resources resource = getResources();
+            button.setBackground(new BitmapDrawable(resource, scaledBitmap));
+        }
+        int mine = getMines(row,col);
+        button.setText(""+mine);
+    }
 
-        // Change text on button:
-        button.setText("");
+    private int getMines(int row,int col) {
+        int mine = 0;
+        for (int r = 0; r < mf.getRows(); r++){
+            Button btn = buttons[r][col];
+            if(btn.getText() == "mines" && r !=row){
+                mine++;
+            }
+        }
+        for (int c = 0; c < mf.getCol(); c++){
+            Button btn = buttons[row][c];
+            if(btn.getText() == "mines" && c !=col){
+                mine++;
+            }
+        }
+        return mine;
+    }
+
+    private void set_foundmines() {
+        mines_found++;
+        TextView Mines = findViewById(R.id.txt_minesno);
+        Mines.setText("Found " + mines_found + " of " + mf.getNo_of_mines()+" Mines");
     }
 
     private void lockButtonSizes() {
@@ -147,7 +170,7 @@ public class game extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_back, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -159,7 +182,6 @@ public class game extends AppCompatActivity {
         switch(item.getItemId()) {
             case android.R.id.home:
                 finish();
-                System.exit(0);
         }
         return super.onOptionsItemSelected(item);
     }
