@@ -16,4 +16,7 @@
     <string name="options">Options</string>
     <string name="help">Help</string>
     <string name="main_menu">MAIN MENU</string>
+    <string name="Created_line">Created by Vaibhav Saini \nCMPT276 : https://opencoursehub.cs.sfu.ca/jackt/grav-cms/cmpt276-2/home</string>
+    <string name="Help_info">In Find The Impostors game, Impostors are hiding under the vented on the game Screen.\nThe Goal: To find all the Impostors using minimum number of scans as possible.\nYou can Tap on a vent to check if the a Inpostor is hiding there, If the Impostor there it is revealed.\nAll the pngs and the background image have been taken from www.citypng.com and https://vectorlogo4u.com/\nAll the CopyRight and Intellilectual property rights belong to Among Us game developer (InnerSloth LLC)\n</string>
+    <string name="help_txt">HELP</string>
 </resources>
