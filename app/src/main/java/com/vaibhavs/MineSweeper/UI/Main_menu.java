@@ -33,6 +33,7 @@ public class Main_menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // increment no of games played
+                mf.setTimes_played(mf.getTimes_played()+1);
                 Toast.makeText(Main_menu.this,"Launching Game Screen",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(Main_menu.this,Help.class);
                 startActivity(i);

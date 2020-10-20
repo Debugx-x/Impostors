@@ -55,7 +55,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:fontFamily="@font/schoolbell"
-        android:text="MAIN MENU"
+        android:text="@string/main_menu"
         android:textAlignment="center"
         android:textSize="30sp" />
 </RelativeLayout>
