@@ -2,18 +2,17 @@ package com.vaibhavs.MineSweeper.model;
 
 public class Minesfield {
 
-    private int no_of_mines;
-    private int no_of_scans;
-    private int Times_played;
-    private int Rows;
-    private int Col;
+    // setting default minimum values for the minefield
+    private int no_of_mines = 6;
+    private int Times_played = 0;
+    private int Rows = 4;
+    private int Col = 6;
 
     private static Minesfield instance;
 
     // default constructor
     public Minesfield(int no_of_mines, int no_of_scans, int times_played, int rows, int col) {
         this.no_of_mines = no_of_mines;
-        this.no_of_scans = no_of_scans;
         this.Times_played = times_played;
         this.Rows = rows;
         this.Col = col;
@@ -26,14 +25,6 @@ public class Minesfield {
 
     public void setNo_of_mines(int no_of_mines) {
         this.no_of_mines = no_of_mines;
-    }
-
-    public int getNo_of_scans() {
-        return no_of_scans;
-    }
-
-    public void setNo_of_scans(int no_of_scans) {
-        this.no_of_scans = no_of_scans;
     }
 
     public int getTimes_played() {
