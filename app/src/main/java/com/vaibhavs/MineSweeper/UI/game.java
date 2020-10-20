@@ -25,8 +25,8 @@ public class game extends AppCompatActivity {
 
     Minesfield mf;
 
-    private int rows;
-    private int col;
+    private int rows = 4;
+    private int col = 6;
     private int mines_found = 0;
     private int Scan_no = 0;
     Button[][] buttons = new Button[rows][col];
@@ -79,8 +79,8 @@ public class game extends AppCompatActivity {
             table.addView(tableRow);
 
             for (int col = 0; col < mf.getCol(); col++) {
-                final int FINAL_COL = mf.getCol();
-                final int FINAL_ROW = mf.getRows();
+                final int FINAL_COL = col;
+                final int FINAL_ROW = row;
 
                 Button button = new Button(this);
                 button.setLayoutParams(new TableRow.LayoutParams(
