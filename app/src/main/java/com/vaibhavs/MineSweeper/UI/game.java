@@ -1,9 +1,5 @@
 package com.vaibhavs.MineSweeper.UI;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,26 +11,57 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.vaibhavs.MineSweeper.R;
 import com.vaibhavs.MineSweeper.model.Minesfield;
 
+import java.util.Random;
+
 public class game extends AppCompatActivity {
+
 
     Minesfield mf;
 
-    Button buttons[][] = new Button[mf.getRows()][mf.getCol()];
+    private int mines_found = 0;
+    private int Scan_no = 0;
+    private int rows = mf.getRows();
+    private int col = mf.getCol();
+    Button[][] buttons = new Button[rows][col];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayShowHomeEnabled(true);
-        mf = Minesfield.getInstance();
         
+        mf = Minesfield.getInstance();
+        set_initialtexts();
         populateButtons();
+        set_mines(buttons);
+    }
+
+    private void set_mines(Button[][] buttons) {
+        Random rand = new Random();
+        int r,c;
+        for (int i = 0; i < mf.getNo_of_mines();){
+            r = rand.nextInt(mf.getRows());
+            c = rand.nextInt(mf.getCol());
+            if (buttons[r][c].getText() != "mine"){
+                buttons[r][c].setText("mine");
+                buttons[r][c].setTextColor(0xff0000);
+                i++;
+            }
+        }
+    }
+
+    private void set_initialtexts() {
+        TextView played_times = findViewById(R.id.txt_timesplayed);
+        played_times.setText("Times Played: " + mf.getTimes_played());
+        TextView Scans = findViewById(R.id.txt_scans);
+        Scans.setText("# Scans used: " + Scan_no);
+        TextView Mines = findViewById(R.id.txt_minesno);
+        Mines.setText("Found 0 of " + mf.getNo_of_mines()+" Mines");
     }
 
     private void populateButtons() {
@@ -64,7 +91,8 @@ public class game extends AppCompatActivity {
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        gridButtonClicked(FINAL_ROW, FINAL_COL);
+                        set_onClickScans();
+                        gridButtonClicked(FINAL_ROW,FINAL_COL);
                     }
                 });
 
@@ -74,37 +102,75 @@ public class game extends AppCompatActivity {
         }
     }
 
+    private void set_onClickScans() {
+        Scan_no++;
+        TextView Scans = findViewById(R.id.txt_scans);
+        Scans.setText("# Scans used: " + Scan_no);
+    }
+
     private void gridButtonClicked(int row, int col) {
         Button button = buttons[row][col];
+        if (button.getText() == "mine") {
 
-        // Lock Button Sizes:
-        lockButtonSizes();
+            // increases no of mines found and sets text
+            set_foundmines();
+            // Lock Button Sizes:
+            lockButtonSizes();
 
-        // Does not scale image.
-//    	button.setBackgroundResource(R.drawable.action_lock_pink);
+            int newWidth = button.getWidth();
+            int newHeight = button.getHeight();
+            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.impostor);
+            Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
+            Resources resource = getResources();
+            button.setBackground(new BitmapDrawable(resource, scaledBitmap));
+        }
+        int mine = getMines(row,col);
+        button.setText(""+mine);
+    }
 
-        // Scale image to button: Only works in JellyBean!
-        // Image from Crystal Clear icon set, under LGPL
-        // http://commons.wikimedia.org/wiki/Crystal_Clear
-        int newWidth = button.getWidth();
-        int newHeight = button.getHeight();
-        Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.mine);
-        Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
-        Resources resource = getResources();
-        button.setBackground(new BitmapDrawable(resource, scaledBitmap));
+    private int getMines(int row,int col) {
+        int mine = 0;
+        for (int r = 0; r < mf.getRows(); r++){
+            Button btn = buttons[r][col];
+            if(btn.getText() == "mines" && r !=row){
+                mine++;
+            }
+        }
+        for (int c = 0; c < mf.getCol(); c++){
+            Button btn = buttons[row][c];
+            if(btn.getText() == "mines" && c !=col){
+                mine++;
+            }
+        }
+        return mine;
+    }
 
-        // Change text on button:
-        button.setText("");
+    private void set_foundmines() {
+        mines_found++;
+        TextView Mines = findViewById(R.id.txt_minesno);
+        Mines.setText("Found " + mines_found + " of " + mf.getNo_of_mines()+" Mines");
     }
 
     private void lockButtonSizes() {
+        for (int r = 0; r < rows; r++){
+            for (int c = 0; c < col; c++){
+                Button button = buttons[r][c];
+                int width = button.getWidth();
+                button.setMinWidth(width);
+                button.setMaxWidth(width);
+
+                int height = button.getHeight();
+                button.setMinHeight(height);
+                button.setMaxHeight(height);
+            }
+        }
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_back, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -116,7 +182,6 @@ public class game extends AppCompatActivity {
         switch(item.getItemId()) {
             case android.R.id.home:
                 finish();
-                System.exit(0);
         }
         return super.onOptionsItemSelected(item);
     }
