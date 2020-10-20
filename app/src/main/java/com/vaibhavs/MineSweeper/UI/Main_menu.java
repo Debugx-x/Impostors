@@ -35,8 +35,8 @@ public class Main_menu extends AppCompatActivity {
                 // increment no of games played
                 mf.setTimes_played(mf.getTimes_played()+1);
                 Toast.makeText(Main_menu.this,"Launching Game Screen",Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(Main_menu.this,Help.class);
-                startActivity(i);
+                Intent intent = new Intent(Main_menu.this,game.class);
+                startActivity(intent);
             }
         });
         Button option_btn = findViewById(R.id.btn_options);
@@ -71,9 +71,8 @@ public class Main_menu extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        switch(item.getItemId()) {
-            case android.R.id.home:
-                System.exit(0);
+        if (item.getItemId() == android.R.id.home) {
+            System.exit(0);
         }
         return super.onOptionsItemSelected(item);
     }
