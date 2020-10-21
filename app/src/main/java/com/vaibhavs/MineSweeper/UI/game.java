@@ -14,6 +14,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.vaibhavs.MineSweeper.R;
 import com.vaibhavs.MineSweeper.model.Minesfield;
@@ -130,7 +131,9 @@ public class game extends AppCompatActivity {
 
     private void winScreen() {
         if(mines_found == mf.getNo_of_mines()){
-
+            FragmentManager manager = getSupportFragmentManager();
+            MessageFragment dialog = new MessageFragment();
+            dialog.show(manager,"win dialog");
         }
     }
 
