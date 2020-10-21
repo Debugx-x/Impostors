@@ -26,7 +26,7 @@ public class game extends AppCompatActivity {
     Minesfield mf;
 
     private int rows;
-    private int col;
+    private int cols;
     private int mines_found = 0;
     private int Scan_no = 0;
     Button[][] buttons;
@@ -36,23 +36,20 @@ public class game extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         mf = Minesfield.getInstance();
-        rows = mf.getRows();
-        col = mf.getCol();
-        buttons = new Button[rows][col];
+
+        extractData();
         set_initialtexts();
-        populateButtons();
-        set_mines();
     }
 
-    private void set_mines() {
+    private void set_mines(Button[][] btn) {
         Random rand = new Random();
         int r,c;
         for (int i = 0; i < mf.getNo_of_mines();){
-            r = rand.nextInt(mf.getRows());
-            c = rand.nextInt(mf.getCol());
-            if (buttons[r][c].getText() != "mine"){
-                buttons[r][c].setText("mine");
-                buttons[r][c].setTextColor(0xffffff);
+            r = rand.nextInt(rows);
+            c = rand.nextInt(cols);
+            if (btn[r][c].getText() != "mine"){
+                btn[r][c].setText("mine");
+                btn[r][c].setTextColor(0xffffff);
                 i++;
             }
         }
@@ -70,7 +67,7 @@ public class game extends AppCompatActivity {
     private void populateButtons() {
         TableLayout table = findViewById(R.id.buttontable);
 
-        for (int row = 0; row < mf.getRows(); row++) {
+        for (int row = 0; row < rows; row++) {
             TableRow tableRow = new TableRow(this);
             tableRow.setLayoutParams(new TableLayout.LayoutParams(
                     TableLayout.LayoutParams.MATCH_PARENT,
@@ -78,7 +75,7 @@ public class game extends AppCompatActivity {
                     1.0f));
             table.addView(tableRow);
 
-            for (int col = 0; col < mf.getCol(); col++) {
+            for (int col = 0; col < cols; col++) {
                 final int FINAL_COL = col;
                 final int FINAL_ROW = row;
 
@@ -127,24 +124,32 @@ public class game extends AppCompatActivity {
             Resources resource = getResources();
             button.setBackground(new BitmapDrawable(resource, scaledBitmap));
         }
-        button.setText("" + getMines(row,col));
+        getMines(row,col);
+        winScreen();
     }
 
-    private int getMines(int row,int col) {
+    private void winScreen() {
+        if(mines_found == mf.getNo_of_mines()){
+
+        }
+    }
+
+    private void getMines(int row,int col) {
         int mine = 0;
-        for (int r = 0; r < mf.getRows(); r++){
-            Button btn = buttons[r][col];
-            if(btn.getText() == "mines" && r !=row){
-                mine++;
+        Button btn = buttons[row][col];
+        if(Scan_no < rows*cols){
+            for (int c = 0;c < cols; c++){
+                if (buttons[row][c].getText() == "mine"){
+                    mine++;
+                }
             }
-        }
-        for (int c = 0; c < mf.getCol(); c++){
-            Button btn = buttons[row][c];
-            if(btn.getText() == "mines" && c !=col){
-                mine++;
+            for (int r = 0; r < rows;r++ ){
+                if(buttons[r][col].getText() == "mine"){
+                    mine++;
+                }
             }
+            btn.setText("" + mine);
         }
-        return mine;
     }
 
     private void set_foundmines() {
@@ -155,7 +160,7 @@ public class game extends AppCompatActivity {
 
     private void lockButtonSizes() {
         for (int r = 0; r < rows; r++){
-            for (int c = 0; c < col; c++){
+            for (int c = 0; c < cols; c++){
                 Button button = buttons[r][c];
                 int width = button.getWidth();
                 button.setMinWidth(width);
@@ -168,6 +173,23 @@ public class game extends AppCompatActivity {
         }
 
     }
+
+    private void extractData() {
+        if(mf.getTimes_played() == 1){
+            rows = 4;
+            cols = 6;
+            mf.setNo_of_mines(6);
+            mf.setRows(rows);
+            mf.setCol(cols);
+        }else{
+            rows = mf.getRows();
+            cols = mf.getCol();
+        }
+        buttons = new Button[rows][cols];
+        populateButtons();
+        set_mines(buttons);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

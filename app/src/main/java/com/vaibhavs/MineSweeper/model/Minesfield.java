@@ -3,10 +3,10 @@ package com.vaibhavs.MineSweeper.model;
 public class Minesfield {
 
     // setting default minimum values for the minefield
-    private int no_of_mines = 6;
+    private int no_of_mines;
     private int Times_played = 0;
-    private int Rows = 4;
-    private int Col = 6;
+    private int Rows;
+    private int Col;
 
     private static Minesfield instance;
 

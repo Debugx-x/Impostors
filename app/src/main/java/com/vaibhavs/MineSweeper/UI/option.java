@@ -57,9 +57,15 @@ public class option extends AppCompatActivity {
     }
 
     private void set_inputText() {
-        etrows.setText("" + mf.getRows());
-        etcols.setText("" + mf.getCol());
-        etmines.setText("" + mf.getNo_of_mines());
+        if(mf.getTimes_played()!=0) {
+            etrows.setText("" + mf.getRows());
+            etcols.setText("" + mf.getCol());
+            etmines.setText("" + mf.getNo_of_mines());
+        } else {
+            etrows.setText("4");
+            etcols.setText("6");
+            etmines.setText("6");
+        }
     }
 
     private void save_dimensions() {
@@ -74,7 +80,7 @@ public class option extends AppCompatActivity {
             int mine = Integer.parseInt(mineStr);
 
             //Parameters checking
-            if(row <=3 ){
+            if(row <= 3 ){
                 throw new IllegalArgumentException("No of rows cannot be less than 3");
             } else if (row >= 51){
                 throw new IllegalArgumentException("No of rows cannot be greater than 50");
@@ -84,7 +90,7 @@ public class option extends AppCompatActivity {
             } else if (col >= 51){
                 throw new IllegalArgumentException("No of columns cannot be greater than 50");
             }
-            if(mine <= 6 ){
+            if(mine <= 5 ){
                 throw new IllegalArgumentException("Impostors cannot be less than 3");
             } else if (mine >= 61){
                 throw new IllegalArgumentException("Impostors cannot be greater than 50");
