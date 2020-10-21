@@ -137,7 +137,7 @@ public class game extends AppCompatActivity {
     private void getMines(int row,int col) {
         int mine = 0;
         Button btn = buttons[row][col];
-        if(Scan_no < rows*cols){
+        if(Scan_no <= rows*cols){
             for (int c = 0;c < cols; c++){
                 if (buttons[row][c].getText() == "mine"){
                     mine++;
