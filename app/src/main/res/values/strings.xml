@@ -25,4 +25,6 @@
     <string name="no_of_rows">No of Rows:</string>
     <string name="no_of_columns">No of Columns:</string>
     <string name="mine_info">No of Imposters:</string>
+    <string name="victory">VICTORY!</string>
+    <string name="you_found_all_the_impostors">You found all the Impostors</string>
 </resources>
