@@ -18,10 +18,13 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.vaibhavs.MineSweeper.R;
 
+// using Glide gif decoder to play the main screen gif
 // using daimajia android animations
 // https://github.com/daimajia/AndroidViewAnimations
 
-
+/**
+ * The Welcome Splash Screen of the game that play different animations
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

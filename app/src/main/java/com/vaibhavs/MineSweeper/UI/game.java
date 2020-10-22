@@ -22,6 +22,9 @@ import com.vaibhavs.MineSweeper.model.Minesfield;
 
 import java.util.Random;
 
+/**
+ *  Game Screen for the game to set up the table of buttons and implement the game
+ */
 public class game extends AppCompatActivity {
 
 
@@ -136,6 +139,11 @@ public class game extends AppCompatActivity {
 
     private void winScreen() {
         if(mines_found == mf.getNo_of_mines()){
+            for(int r = 0; r < rows;r++) {
+                for (int c = 0; c < cols; c++) {
+                    buttons[r][c].setText("0");
+                }
+            }
             final MediaPlayer win = MediaPlayer.create(this,R.raw.victory_screen);
             win.start();
             FragmentManager manager = getSupportFragmentManager();

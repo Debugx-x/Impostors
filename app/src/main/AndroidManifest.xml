@@ -27,6 +27,7 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".UI.Main_menu"
             android:screenOrientation="landscape"
+            android:noHistory="true"
             android:label="Main Menu"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity

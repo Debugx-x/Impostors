@@ -12,7 +12,9 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.vaibhavs.MineSweeper.R;
 
-
+/**
+ * Player Victory Screen
+ */
 public class MessageFragment extends AppCompatDialogFragment {
 
     @Override
