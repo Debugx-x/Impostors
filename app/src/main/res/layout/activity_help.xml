@@ -5,6 +5,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mainmenu_bg"
     tools:context=".UI.Help">
 
     <TextView
@@ -15,7 +16,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/schoolbell"
         android:text="@string/help_txt"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,9 +32,10 @@
         android:fontFamily="serif-monospace"
         android:linksClickable="true"
         android:text="@string/Help_info"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textColorLink="#673AB7"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/helpTitle" />
@@ -47,7 +49,7 @@
         android:autoLink="all"
         android:linksClickable="true"
         android:text="@string/Created_line"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textColorLink="#673AB7"
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"

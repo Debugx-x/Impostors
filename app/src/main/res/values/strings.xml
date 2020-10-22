@@ -1,23 +1,15 @@
 <resources>
-    <string name="app_name">MIneSweeper</string>
+    <string name="app_name">Impostors</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="Title">MineSweeper</string>
+    <string name="Title">Find The IMPOSTORS</string>
     <string name="byline">By Vaibhav Saini</string>
     <string name="skipbutton">SKIP</string>
     <string name="play_game">Play Game!</string>
     <string name="options">Options</string>
     <string name="help">Help</string>
     <string name="main_menu">MAIN MENU</string>
-    <string name="Created_line">Created by Vaibhav Saini and Hiten Thapar \nCMPT276 : https://opencoursehub.cs.sfu.ca/jackt/grav-cms/cmpt276-2/home</string>
-    <string name="Help_info">In Find The Impostors game, Impostors are hiding under the vented on the game Screen.\nThe Goal: To find all the Impostors using minimum number of scans as possible.\nYou can Tap on a vent to check if the a Inpostor is hiding there, If the Impostor there it is revealed.\nAll the pngs and the background image have been taken from www.citypng.com and https://vectorlogo4u.com/\nAll the audio files are taken from https://www.voicy.network/pages/among-us\nAll the CopyRight and Intellilectual property rights belong to Among Us game developer (InnerSloth LLC)\n</string>
+    <string name="Created_line">Created by Vaibhav Saini and Hiten Thapar \nCMPT276 : https://opencoursehub.cs.sfu.ca/jackt/grav–cms/cmpt276–2/home</string>
+    <string name="Help_info">In Find The Impostors game, Impostors are hiding under the vented on the game Screen.\nThe Goal: To find all the Impostors using minimum number of scans as possible.\nYou can Tap on a vent to check if the a Inpostor is hiding there, If the Impostor there it is revealed.\nAll the pngs and the background image have been taken from www.citypng.com and https://vectorlogo4u.com \nAll the audio files are taken from https://www.voicy.network/pages/among-us\nAll the CopyRight and Intellilectual property rights belong to Among Us game developer (InnerSloth LLC)\n</string>
     <string name="help_txt">HELP</string>
     <string name="settings">SETTINGS</string>
     <string name="reset_timesplayed">Reset Times Played</string>

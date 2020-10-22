@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mainmenu_bg"
     tools:context=".UI.Main_menu">
 
     <Button
@@ -14,8 +15,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="42dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/play_game" />
 
     <Button
@@ -25,7 +26,7 @@
         android:layout_above="@+id/btn_help"
         android:layout_alignParentStart="true"
         android:layout_marginStart="42dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/options" />
 
     <Button
@@ -60,5 +61,6 @@
         android:fontFamily="@font/schoolbell"
         android:text="@string/main_menu"
         android:textAlignment="center"
-        android:textSize="42dp" />
+        android:textColor="#FFFFFF"
+        android:textSize="42sp" />
 </RelativeLayout>

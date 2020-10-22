@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/mainmenu_bg"
     tools:context=".UI.option">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:text="@string/mine_info"
+        android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
     <EditText
@@ -24,10 +26,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/textView6"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="number"
         android:text="6"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/input_col"
@@ -37,10 +41,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/textView5"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="number"
         android:text="6"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textView"
@@ -52,6 +58,7 @@
         android:layout_marginTop="22dp"
         android:fontFamily="@font/schoolbell"
         android:text="@string/settings"
+        android:textColor="#FFFFFF"
         android:textSize="36sp"
         android:textStyle="normal" />
 
@@ -74,6 +81,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/board_dimensions"
+        android:textColor="#FFFFFF"
         android:textSize="30sp" />
 
     <TextView
@@ -85,6 +93,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="18dp"
         android:text="@string/no_of_rows"
+        android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
     <TextView
@@ -96,18 +105,21 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:text="@string/no_of_columns"
+        android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
     <EditText
         android:id="@+id/input_rows"
         android:layout_width="87dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/textView2"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/textView4"
+        android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="number"
         android:text="4"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
 </RelativeLayout>
