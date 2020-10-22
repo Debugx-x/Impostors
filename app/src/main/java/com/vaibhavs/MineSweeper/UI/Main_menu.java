@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -14,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.vaibhavs.MineSweeper.R;
 import com.vaibhavs.MineSweeper.model.Minesfield;
 
+/**
+ * The main menu screen of the game used to launch the game or access option and help menu screens
+ */
 public class Main_menu extends AppCompatActivity {
 
     Minesfield mf;
@@ -72,13 +74,7 @@ public class Main_menu extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        if (item.getItemId() == android.R.id.home) {
-            System.exit(0);
-        }
-        return super.onOptionsItemSelected(item);
+    public void onBackPressed(){
+        finish();
     }
 }

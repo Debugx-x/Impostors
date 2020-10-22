@@ -13,6 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.vaibhavs.MineSweeper.R;
 import com.vaibhavs.MineSweeper.model.Minesfield;
 
+/**
+ * Options Screen Menu used to edit the dimensions th egame board and no of Impostors,
+ * also reset the times played
+ */
 public class option extends AppCompatActivity {
 
     Minesfield mf;

@@ -1,5 +1,8 @@
 package com.vaibhavs.MineSweeper.model;
 
+/**
+ *  This class Holds all the valuse need to run the game such as no of rows, columns and Impostors
+ */
 public class Minesfield {
 
     // setting default minimum values for the minefield

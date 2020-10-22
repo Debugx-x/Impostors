@@ -8,6 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.vaibhavs.MineSweeper.R;
 
+/**
+ *  ALL the images, audio files and character asset used in this game do not belong to me and
+ *  were taken various sites
+ */
 public class Help extends AppCompatActivity {
 
     @Override
