@@ -1,6 +1,7 @@
 package com.vaibhavs.MineSweeper.UI;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +17,6 @@ import com.vaibhavs.MineSweeper.model.Minesfield;
 public class Main_menu extends AppCompatActivity {
 
     Minesfield mf;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +29,12 @@ public class Main_menu extends AppCompatActivity {
 
     void Intent_buttons(){
         Button play_btn = findViewById(R.id.btn_play);
+        final MediaPlayer option = MediaPlayer.create(this,R.raw.option_btn);
+        final MediaPlayer Play = MediaPlayer.create(this,R.raw.play_game);
         play_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Play.start();
                 // increment no of games played
                 mf.setTimes_played(mf.getTimes_played()+1);
                 Toast.makeText(Main_menu.this,"Launching Game Screen",Toast.LENGTH_SHORT).show();
@@ -43,6 +46,7 @@ public class Main_menu extends AppCompatActivity {
         option_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                option.start();
                 Toast.makeText(Main_menu.this,"Launching options Screen",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(Main_menu.this,option.class);
                 startActivity(i);
@@ -52,6 +56,7 @@ public class Main_menu extends AppCompatActivity {
         help_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                option.start();
                 Toast.makeText(Main_menu.this,"Launching Help Screen",Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(Main_menu.this,Help.class);
                 startActivity(i);

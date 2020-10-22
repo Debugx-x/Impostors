@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -111,8 +112,10 @@ public class game extends AppCompatActivity {
 
     private void gridButtonClicked(int row, int col) {
         Button button = buttons[row][col];
+        final MediaPlayer vent = MediaPlayer.create(this,R.raw.btn_press);
         if (button.getText() == "mine") {
-
+            final MediaPlayer impostor = MediaPlayer.create(this,R.raw.btn_imposter);
+            impostor.start();
             // increases no of mines found and sets text
             set_foundmines();
             // Lock Button Sizes:
@@ -124,6 +127,8 @@ public class game extends AppCompatActivity {
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
             Resources resource = getResources();
             button.setBackground(new BitmapDrawable(resource, scaledBitmap));
+        } else {
+            vent.start();
         }
         getMines(row,col);
         winScreen();
@@ -131,6 +136,8 @@ public class game extends AppCompatActivity {
 
     private void winScreen() {
         if(mines_found == mf.getNo_of_mines()){
+            final MediaPlayer win = MediaPlayer.create(this,R.raw.victory_screen);
+            win.start();
             FragmentManager manager = getSupportFragmentManager();
             MessageFragment dialog = new MessageFragment();
             dialog.show(manager,"win dialog");
