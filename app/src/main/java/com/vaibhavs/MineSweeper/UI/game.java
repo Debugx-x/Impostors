@@ -66,7 +66,7 @@ public class game extends AppCompatActivity {
         TextView Scans = findViewById(R.id.txt_scans);
         Scans.setText("# Scans used: " + Scan_no);
         TextView Mines = findViewById(R.id.txt_minesno);
-        Mines.setText("Found 0 of " + mf.getNo_of_mines()+" Mines");
+        Mines.setText("Found 0 of " + mf.getNo_of_mines()+" Impostors");
     }
 
     private void populateButtons() {
@@ -173,7 +173,7 @@ public class game extends AppCompatActivity {
     private void set_foundmines() {
         mines_found++;
         TextView Mines = findViewById(R.id.txt_minesno);
-        Mines.setText("Found " + mines_found + " of " + mf.getNo_of_mines()+" Mines");
+        Mines.setText("Found " + mines_found + " of " + mf.getNo_of_mines()+" Impostors");
     }
 
     private void lockButtonSizes() {
